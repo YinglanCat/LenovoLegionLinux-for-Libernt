@@ -45,6 +45,30 @@ It allows you to control features like the fan curve, power mode, power limits, 
 
 :boom: **Starring shows that this is useful to me and the Linux community so hopefully a merge into the Kernel is possible.**
 
+## LiberNT fork
+
+This fork carries a port of the Lenovo Legion support to LiberNT, an NT
+operating system, and keeps the Linux driver as the behaviour reference.
+
+**Provenance.** `kernel_module/legion-laptop.c` is the reference for behaviour:
+WMI GUIDs, ACPI method names, EC offsets, register meanings and the sequences
+that use them. The LiberNT driver declares this file as its source.
+
+**Reused code.** A snippet copied verbatim from `kernel_module/legion-laptop.c`
+keeps its `GPL-2.0-or-later` licence and its copyright notice, and the file
+that receives it says so. Everything else in the port is original work.
+
+**Licensing.** Upstream files keep their licence: `kernel_module/legion-laptop.c`
+is `GPL-2.0-or-later`, the rest of the tree follows the repository `LICENSE`
+(`GPL-2.0`), and `kernel_module/6_10_patch/` is `GPL-2.0-only` and is not part
+of the port. The port is `GPL-2.0-or-later` where it derives from the Linux
+driver, and `GPL-3.0-or-later` otherwise, which is compatible with LiberNT's
+`GPL-3.0`.
+
+**Branches.** `main` tracks `johnfanv2/LenovoLegionLinux`; the port lives on
+`libernt` and is synchronised from `main` before each release. The Linux code
+on `main` stays buildable and unmodified by the port.
+
 ## :rocket: Features
 
 <p align="center">
